@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Coding style</title>
+<!-- 2015-02-05 Jeu 18:24 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Pierre-Henry Frohring" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Coding style</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Coding style</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Context</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1. Definitions</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2. Init State</a></li>
+<li><a href="#sec-1-3">1.3. Problem</a></li>
+<li><a href="#sec-1-4">1.4. End State</a></li>
+<li><a href="#sec-1-5">1.5. Rationale</a></li>
+<li><a href="#sec-1-6">1.6. Solution</a>
+<ul>
+<li><a href="#sec-1-6-1">1.6.1. Javascript</a></li>
+<li><a href="#sec-1-6-2">1.6.2. User interface code.</a></li>
+<li><a href="#sec-1-6-3">1.6.3. EditorConfig</a></li>
+<li><a href="#sec-1-6-4">1.6.4. JSHint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Coding style</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Team <span class="underline">expects</span> a coding style to be respected <span class="underline">so that</span> code is relevant, clear and short.
+</li>
+</ul>
+</div>
+
+
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Context</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Version: 1.0.3
+</li>
+<li>Contribution policy: <a href="http://rfc.zeromq.org/spec:22">C4.1</a>
+</li>
+<li>Short name: Coding style
+</li>
+<li>Contributors:
+<ul class="org-ul">
+<li>Full name: Pierre-Henry Fröhring, contact: frohring.pierrehenry@gmail.com
+</li>
+<li>Full name: Bastien Faure, contact: contact@bastienfaure.fr
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>The key words <b>MUST</b>, <b>MUST NOT</b>, <b>REQUIRED</b>, <b>SHALL</b>, <b>SHALL NOT</b>,
+<b>SHOULD</b>, <b>SHOULD NOT</b>, <b>RECOMMENDED</b>, <b>MAY</b>, and <b>OPTIONAL</b> in this
+document are to be interpreted as described in <a href="http://tools.ietf.org/html/rfc2119">RFC 2119</a>
+</li>
+
+<li><a id="workingbackwards" name="workingbackwards"></a> <a href="http://www.allthingsdistributed.com/2006/11/working_backwards.html">Working backwards</a>
+</li>
+
+<li><a id="cretan" name="cretan"></a> <a href="http://hintjens.com/blog:81">The cretan method</a>
+</li>
+
+<li><a id="calloption" name="calloption"></a> <a href="http://www.higherorderlogic.com/2010/07/bad-code-isnt-technical-debt-its-an-unhedged-call-option/">Bad code is unhedged call option</a>
+</li>
+
+<li><a id="ideaprog" name="ideaprog"></a> <a href="http://www.infoq.com/presentations/Expression-of-Ideas">Programming for the expression of ideas</a>
+</li>
+
+<li><a id="curryhoward" name="curryhoward"></a> <a href="http://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence">Curry-Howard-Lambek correspondence</a>
+</li>
+
+<li><a id="proof" name="proof"></a> <a href="http://research.microsoft.com/en-us/um/people/lamport/pubs/proof.pdf">Leslie Lamport on writing a proof</a>
+</li>
+
+<li><a id="tarpit" name="tarpit"></a> <a href="https://github.com/papers-we-love/papers-we-love/blob/master/design/out-of-the-tar-pit.pdf?raw=true">Out of the tar pit</a>
+</li>
+
+<li><a id="google-js" name="google-js"></a> <a href="https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google coding style</a>
+</li>
+
+<li><a id="crock-js" name="crock-js"></a> <a href="http://www.amazon.com/exec/obidos/ASIN/0596517742/wrrrldwideweb">JS the good parts</a>
+</li>
+
+<li><a id="class" name="class"></a> <a href="https://github.com/nomosyn/js-coding-style/blob/master/class-template.js">Class template</a>
+</li>
+
+<li><a id="story-template" name="story-template"></a> <a href="https://github.com/nomosyn/js-coding-style/blob/master/story-template.org">Story template</a>
+</li>
+
+<li><a id="README" name="README"></a> README: a file following the <a href="#story-template">Story template</a>
+</li>
+
+<li><a id="package" name="package"></a> <a href="http://docs.meteor.com/#/full/packagejs">Meteor package</a>
+</li>
+
+<li><a id="semver" name="semver"></a> <a href="http://semver.org/">Semantic versioning</a>
+</li>
+
+<li><a id="catforprog" name="catforprog"></a> <a href="http://www.codemesh.io/static/upload/media/14153791979335jeremygibbons.pdf">Categories for programmers</a>
+</li>
+
+<li><a id="connthings" name="connthings"></a> <a href="http://www.codemesh.io/static/upload/media/1416242738765617codemesh14joearmstrong.pdf">Connecting things</a>
+</li>
+
+<li><a id="ramda" name="ramda"></a> <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/">Ramda</a>
+</li>
+
+<li><a id="frp" name="frp"></a> <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">FRP</a>
+</li>
+
+<li><a id="meteor" name="meteor"></a> <a href="https://www.meteor.com/">Meteor</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Init State</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Little or no consistency accross code, redunduncies, etc&#x2026;  bad code that
+more or less works.
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Problem</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>The maintainers must either rewrite contributions by hand, or must abandon
+any attempt to enforce a consistent <b>voice</b> across a project; so code is :
+<ul class="org-ul">
+<li>Hard to write correctly, and errors are rapidly clear
+</li>
+
+<li>Hard to read and understand
+</li>
+
+<li>Hard to reuse and remix, in whole or in fragments
+</li>
+
+<li>=&gt; Too expensive to create, read, update, delete functionalities.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> End State</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Following this coding style make the code:
+<ul class="org-ul">
+<li>Short
+<ul class="org-ul">
+<li>idealy, no code should be produced to implement and maintain a
+functionality&#x2026; but that's magic.  Real world demands that to get
+something, something else should be given.  Let's be lazy and give
+the bare minimum.
+</li>
+</ul>
+</li>
+
+<li>Clear
+<ul class="org-ul">
+<li>Jumping from a file written by <b>P</b> to a file written by <b>B</b> looks
+like going from english to english, not russian to chinese.
+</li>
+</ul>
+</li>
+
+<li>=&gt; create, read, update, delete functionalities is less expensive.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Rationale</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>This coding style is inpired by these highly recommended papers :
+<ul class="org-ul">
+<li><a href="#workingbackwards">Working backwards</a>
+</li>
+
+<li><a href="#cretan">The cretan method</a>
+</li>
+
+<li><a href="#calloption">Bad code is unhedged call option</a>
+</li>
+
+<li><a href="#ideaprog">Programming for the expression of ideas</a>
+</li>
+
+<li><a href="#curryhoward">Curry-Howard-Lambek correspondence</a>
+</li>
+
+<li><a href="#proof">Leslie Lamport on writing a proof</a>
+</li>
+
+<li><a href="#tarpit">Out of the tar pit</a>
+</li>
+
+<li><a href="#google-js">Google coding style</a>
+</li>
+
+<li><a href="#crock-js">Crockford</a>
+</li>
+
+<li><a href="#catforprog">Categories for programmers</a>
+</li>
+
+<li><a href="#connthings">Connecting things together</a>
+</li>
+
+<li><a href="#ramda">ramda library</a>
+</li>
+
+<li><a href="#frp">FRP</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Solution</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>The language for all names and comments <b>SHALL</b> be English.
+</li>
+
+<li><a id="unitOfWork" name="unitOfWork"></a> A unit of work is:
+<ul class="org-ul">
+<li>a <a href="#meteor">meteor application</a> that uses functionalities implemented as one or more <a href="#package">meteor packages</a>.
+<ul class="org-ul">
+<li>Each meteor package:
+<ul class="org-ul">
+<li><b>MUST</b> be at most one level deep.
+</li>
+
+<li><b>MUST</b> contain a <a href="#README">README</a>
+</li>
+
+<li><b>MAY</b> contain one or more <a href="#class">classes</a> where each class covers one
+area of work.
+</li>
+
+<li><b>SHOULD</b> contain tests for api exposed
+</li>
+
+<li><b>MUST NOT</b> contain anything else.
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><a id="NamingRules" name="NamingRules"></a> Naming rules:
+<ul class="org-ul">
+<li>Short words that are simple, clear, and obvious to the reader&#x2026;
+</li>
+
+<li>&#x2026;NOT invented words or acronyms.
+</li>
+
+<li><code>functionNamesLikeThis</code> begin by a verb. Ex: <code>destroy</code>, <code>insert</code>,
+<code>lookup</code>, <code>build</code>, <code>isReady</code>, <code>isEmpty</code>.
+</li>
+
+<li><code>variableNamesLikeThis</code> and made only out of nouns. Ex: <code>color</code>,
+<code>status</code>.
+</li>
+
+<li><code>TypeNamesLikeThis</code>
+</li>
+
+<li><code>EnumNamesLikeThis</code>
+</li>
+
+<li><code>CONSTANT_VALUES_LIKE_THIS</code>
+</li>
+
+<li><code>foo.namespaceNamesLikeThis.bar</code>
+</li>
+
+<li><code>file-names-like-this.js</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div id="outline-container-sec-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> Javascript</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><a href="#NamingRules">Naming rules</a> <b>MUST</b> be followed.
+</li>
+
+<li>JavaScript code <b>SHALL</b> be executed in strict mode.
+</li>
+
+<li>All variables <b>SHALL</b> be declared at the top of functions.
+</li>
+
+<li><code>new</code> keyword <b>SHOULD NOT</b> be used.
+</li>
+
+<li>Instructions <b>SHALL</b> be finished by <code>;</code> wherever possible.
+</li>
+
+<li>The return value expression <b>MUST</b> start on the same line as the return
+keyword.
+</li>
+
+<li>You <b>MUST NOT</b> use <code>with</code> keyword.
+</li>
+
+<li>You <b>MUST NOT</b> use <code>eval</code> keyword.
+</li>
+
+<li>You <b>SHOULD</b> use <code>===</code> instead of  <code>==</code>; <code>!==</code> instead of <code>!=</code>.
+</li>
+
+<li>You <b>MUST NOT</b> make circular reference (&lt;=&gt; memory leak) using closures
+<div class="org-src-container">
+
+<pre class="src src-js" id="closure_memory_leak">/** Because function onclick is defined in the scope of foo then it keeps a
+ *  reference to `element`, `a` and `b`.
+ *
+ *  We end up with: element -&gt; onclick -&gt; function -&gt; (element, a, b) We have a
+ *  cycle: element -&gt; ... -&gt; element that will not be garbage collected: memory
+ *  leak, slow code.
+ */
+function foo(element, a, b) {
+    element.onclick = function() { /* uses a and b */ };
+}
+
+/** Better do: */
+function bar(a,b) { return function() { /* uses a and b */ }; }
+function foo(element, a, b) { element.onclick = bar(a, b); }
+</pre>
+</div>
+</li>
+
+<li>You <b>MUST NOT</b> modify prototypes of builtin objects.
+</li>
+
+<li>If a method is longer than a line or two and makes use of <code>this</code>, then you
+<b>MUST</b> begin with <code>var self = this</code>, and always use <code>self</code>, never <code>this</code>.
+</li>
+
+<li>Exceptions <b>MUST</b> be caught.
+</li>
+
+<li>You <b>MUST</b> use <code>null</code> and <b>MUST NOT</b> use <code>undefined</code> to signify the absence of
+something or any valid value.
+</li>
+
+<li>Indentation <b>SHALL</b> be 4 spaces per level. Tab characters <b>SHALL NOT</b> be used
+in code.
+</li>
+
+<li>Code lines of more than 80 characters <b>SHOULD</b> be folded.
+</li>
+
+<li>Code <b>SHOULD</b> work as expected, at least in Chrome and Firefox.
+</li>
+
+<li>Comments <b>MUST</b> follow the <a href="#class">class</a> example, where:
+<ul class="org-ul">
+<li><code>uid</code> is defined as: given a <code>uuid := 68DE7F67-DFA8-4DB9-9287-A1242B0BDDBA</code>, then <code>uid := DFA8</code>.
+</li>
+
+<li><code>(def &lt;uid&gt;) &lt;definition&gt;</code> binds the <code>&lt;uid&gt;</code> to the definition <code>&lt;definition&gt;</code>.
+</li>
+
+<li><code>(ref &lt;uid&gt;)</code> references a <code>&lt;uid&gt;</code>.
+</li>
+
+<li><code>(todo (def &lt;uid&gt;)) &lt;definition&gt;</code>; means that this <code>&lt;definition&gt;</code> is to be
+implemented.
+</li>
+
+<li><code>(fixme &lt;uid&gt;) &lt;definition&gt;</code>; defines a problem to solve.
+</li>
+
+<li><code>(block (def &lt;uid&gt;)) &lt;definition&gt;</code>; <code>&lt;definition&gt;</code> is implemented as a block of lines to be defined.
+<ul class="org-ul">
+<li><code>(begin (ref &lt;uid&gt;))</code>; defines the beginning of the implementation.
+</li>
+
+<li><code>(end (ref &lt;uid&gt;))</code>; defines the end of the implementation.
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>If a version number is needed, it <b>MUST</b> follow the <a href="#semver">semantic versioning</a> convention.
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-6-2" class="outline-4">
+<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> User interface code.</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ul class="org-ul">
+<li><a href="https://github.com/meteor/meteor/wiki/Meteor-Style-Guide">source:meteor-style-guide</a>
+</li>
+
+<li>Code should be strictly divided into user interface code, which can print
+messages, read input, make sounds, or otherwise engage with the user; and
+library code, which is not allowed to do any of these things.
+</li>
+
+<li>The amount of user interface code should be kept as small as possible. It
+should focus on getting instructions from the user, calling library code
+to carry out those instructions, and explaining to the user what happened
+– wherever possible, the logic to present this user interface should be
+separated from the library code that does the actual work, for clarity,
+reusability, and modularity.
+</li>
+
+<li>As an example of this principle, when a random function in the codebase
+needs to report an error or print a status message, it is not allowed to
+write to stdout or stderr. If any function is allowed to write to the
+terminal, it becomes impossible to gain any confidence in the quality of
+our UX, because it is impossible to reason about what messages will be
+printed when without looking at every single write statement in the
+codebase and reasoning about the call graph. Instead, the function needs
+to expose some kind of interface to its caller (such as a particular
+return value, or a callback) that indicates the condition that has
+occurred. The caller needs to plumb that back to its own caller, and so
+forth, until we reach user interface code that can figure out the right
+way to present the condition to the user (if it thinks the user cares
+about it).
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-6-3" class="outline-4">
+<h4 id="sec-1-6-3"><span class="section-number-4">1.6.3</span> EditorConfig</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<pre class="example">
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+</pre>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-6-4" class="outline-4">
+<h4 id="sec-1-6-4"><span class="section-number-4">1.6.4</span> JSHint</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<pre class="example">
+// Copyright (C) 2014 NNotes SAS
+// Author : Bastien Faure
+
+{
+    // JSHint NNotes Configuration File
+    // See http://jshint.com/docs/ for more details
+
+    "maxerr"        : 50,       // {int} Maximum error before stopping
+
+    // Enforcing
+    "bitwise"       : true,     // true: Prohibit bitwise operators (&amp;, |, ^, etc.)
+    "camelcase"     : true,     // true: Identifiers must be in camelCase
+    "curly"         : true,     // true: Require {} for every new block or scope
+    "eqeqeq"        : true,     // true: Require triple equals (===) for comparison
+    "freeze"        : true,     // true: prohibits overwriting prototypes of native objects such as Array, Date etc.
+    "forin"         : true,     // true: Require filtering for..in loops with obj.hasOwnProperty()
+    "immed"         : true,     // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
+    "indent"        : 4,        // {int} Number of spaces to use for indentation
+    "latedef"       : true,     // true: Require variables/functions to be defined before being used
+    "newcap"        : false,    // true: Require capitalization of all constructor functions e.g. `new F()`
+    "noarg"         : true,     // true: Prohibit use of `arguments.caller` and `arguments.callee`
+    "noempty"       : true,     // true: Prohibit use of empty blocks
+    "nonbsp"        : true,     // true: Prohibit "non-breaking whitespace" characters.
+    "nonew"         : false,    // true: Prohibit use of constructors for side-effects (without assignment)
+    "plusplus"      : false,    // true: Prohibit use of `++` &amp; `--`
+    "quotmark"      : "single", // Quotation mark consistency:
+                                //   false    : do nothing (default)
+                                //   true     : ensure whatever is used is consistent
+                                //   "single" : require single quotes
+                                //   "double" : require double quotes
+    "undef"         : true,     // true: Require all non-global variables to be declared (prevents global leaks)
+    "unused"        : true,     // true: Require all defined variables be used
+    "strict"        : true,     // true: Requires all functions run in ES5 Strict Mode
+    "maxparams"     : false,    // {int} Max number of formal params allowed per function
+    "maxdepth"      : false,    // {int} Max depth of nested blocks (within functions)
+    "maxstatements" : false,    // {int} Max number statements per function
+    "maxcomplexity" : false,    // {int} Max cyclomatic complexity per function
+    "maxlen"        : 200,       // {int} Max number of characters per line
+
+    // Relaxing
+    "asi"           : false,     // true: Tolerate Automatic Semicolon Insertion (no semicolons)
+    "boss"          : false,     // true: Tolerate assignments where comparisons would be expected
+    "debug"         : false,     // true: Allow debugger statements e.g. browser breakpoints.
+    "eqnull"        : false,     // true: Tolerate use of `== null`
+    "es5"           : false,     // true: Allow ES5 syntax (ex: getters and setters)
+    "esnext"        : false,     // true: Allow ES.next (ES6) syntax (ex: `const`)
+    "moz"           : false,     // true: Allow Mozilla specific syntax (extends and overrides esnext features)
+                                 // (ex: `for each`, multiple try/catch, function expression…)
+    "evil"          : false,     // true: Tolerate use of `eval` and `new Function()`
+    "expr"          : false,     // true: Tolerate `ExpressionStatement` as Programs
+    "funcscope"     : false,     // true: Tolerate defining variables inside control statements
+    "globalstrict"  : false,     // true: Allow global "use strict" (also enables 'strict')
+    "iterator"      : false,     // true: Tolerate using the `__iterator__` property
+    "lastsemic"     : false,     // true: Tolerate omitting a semicolon for the last statement of a 1-line block
+    "laxbreak"      : false,     // true: Tolerate possibly unsafe line breakings
+    "laxcomma"      : true,      // true: Tolerate comma-first style coding
+    "loopfunc"      : false,     // true: Tolerate functions being defined in loops
+    "multistr"      : false,     // true: Tolerate multi-line strings
+    "noyield"       : false,     // true: Tolerate generator functions with no yield statement in them.
+    "notypeof"      : false,     // true: Tolerate invalid typeof operator values
+    "proto"         : false,     // true: Tolerate using the `__proto__` property
+    "scripturl"     : false,     // true: Tolerate script-targeted URLs
+    "shadow"        : false,     // true: Allows re-define variables later in code e.g. `var x=1; x=2;`
+    "sub"           : false,     // true: Tolerate using `[]` notation when it can still be expressed in dot notation
+    "supernew"      : false,     // true: Tolerate `new function () { ... };` and `new Object;`
+    "validthis"     : false,     // true: Tolerate using this in a non-constructor function
+
+    // Environments
+    "browser"       : true,     // Web Browser (window, document, etc)
+    "browserify"    : false,    // Browserify (node.js code in the browser)
+    "couch"         : false,    // CouchDB
+    "devel"         : true,     // Development/debugging (alert, confirm, etc)
+    "dojo"          : false,    // Dojo Toolkit
+    "jasmine"       : false,    // Jasmine
+    "jquery"        : false,    // jQuery
+    "mocha"         : false,    // Mocha
+    "mootools"      : false,    // MooTools
+    "node"          : false,    // Node.js
+    "nonstandard"   : false,    // Widely adopted globals (escape, unescape, etc)
+    "prototypejs"   : false,    // Prototype and Scriptaculous
+    "qunit"         : false,    // QUnit
+    "rhino"         : false,    // Rhino
+    "shelljs"       : false,    // ShellJS
+    "worker"        : false,    // Web Workers
+    "wsh"           : false,    // Windows Scripting Host
+    "yui"           : false,    // Yahoo User Interface
+
+    // Custom Globals
+    "globals"       : {}        // additional predefined global variables
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Pierre-Henry Frohring</p>
+<p class="date">Created: 2015-02-05 Jeu 18:24</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
