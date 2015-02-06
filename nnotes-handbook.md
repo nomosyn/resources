@@ -182,7 +182,10 @@ vitally important to, whenever possible, not operate by using assumptions,
 unproven theories, or folk wisdom.
 
 So we have learned that when we take nearly any action, it’s best to do so in
-a way that we can measure, predict outcomes, and analyze results.
+a way that we can
+
+-   measure, predict outcomes
+-   analyze results
 
 ## What if I screw up?<a id="sec-1-6" name="sec-1-6"></a>
 

@@ -156,7 +156,9 @@
    unproven theories, or folk wisdom.
 
    So we have learned that when we take nearly any action, it’s best to do so in
-   a way that we can measure, predict outcomes, and analyze results.
+   a way that we can
+   - measure, predict outcomes
+   - analyze results
 
 
 
