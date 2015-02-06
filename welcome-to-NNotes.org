@@ -110,7 +110,7 @@
 
     - En cas de problème n'hésitez pas à nous contacter
       (frohring.pierrehenry@gmail.com, contact@bastienfaure.fr) et jetez un oeil
-      au [[http://www.valvesoftware.com/company/Valve_Handbook_LowRes.pdf][valve handbook]].
+      au [[https://github.com/nomosyn/resources/][NNotes handbook]]
 
 
     - Implémentez le projet sur GitHub !
