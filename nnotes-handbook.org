@@ -1,6 +1,6 @@
 * NNotes handbook
 
-  In 2012, we set out to let people learn, share and earn money for doing it
+  In 2013, we set out to let people learn, share and earn money for doing it
   whatever they do, whoever they are, thanks to a great web plateform.
 
   We know already that we need first to create a place that was designed to foster
@@ -164,30 +164,31 @@
 
 ** What if I screw up?
 
-   Nobody has ever been fired at Valve for making a mistake. It wouldn’t make
-   sense for us to operate that way. Providing the freedom to fail is an
-   important trait of the company - we couldn’t expect so much of individuals if
-   we also penalized people for errors. Even expensive mistakes, or ones which
-   result in a very public failure, are genuinely looked at as opportunities to
-   learn.
+   #+BEGIN_EXAMPLE
+     Nobody has ever been fired at Valve for making a mistake. It wouldn’t make
+     sense for us to operate that way. Providing the freedom to fail is an
+     important trait of the company - we couldn’t expect so much of individuals if
+     we also penalized people for errors. Even expensive mistakes, or ones which
+     result in a very public failure, are genuinely looked at as opportunities to
+     learn.
 
-   We can always repair the mistake or make up for it.  Screwing up is a great
-   way to find out that your assumpions were wrong or that your model of the
-   world was a little bit off. As long as you update your model and move forward
-   with a better picture, you’re doing it right.
+     We can always repair the mistake or make up for it.  Screwing up is a great
+     way to find out that your assumpions were wrong or that your model of the
+     world was a little bit off. As long as you update your model and move forward
+     with a better picture, you’re doing it right.
 
-   Look for ways to test your beliefs. Never be afraid to run an experiment or
-   to collect more data. It helps to make predictions and anticipate nasty
-   outcomes.
+     Look for ways to test your beliefs. Never be afraid to run an experiment or
+     to collect more data. It helps to make predictions and anticipate nasty
+     outcomes.
 
-   Ask yourself “what would I expect to see if I’m right?” Ask yourself “what
-   would I expect to see if I’m wrong?”  Then ask yourself “what do I see?”  If
-   something totally unexpected happens, try to figure out why.
+     Ask yourself “what would I expect to see if I’m right?” Ask yourself “what
+     would I expect to see if I’m wrong?”  Then ask yourself “what do I see?”  If
+     something totally unexpected happens, try to figure out why.
 
-   There are still some bad ways to fail. Repeating the same mistake over and
-   over is one. Not listening to customers or peers before or after a failure is
-   another. Never ignore the evidence; particularly when it says you’re wrong.
-
+     There are still some bad ways to fail. Repeating the same mistake over and
+     over is one. Not listening to customers or peers before or after a failure is
+     another. Never ignore the evidence; particularly when it says you’re wrong.
+   #+END_EXAMPLE
 
 
 ** What if we ALL screw up?
