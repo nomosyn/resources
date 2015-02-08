@@ -1,4 +1,3 @@
-
 #+TITLE: Bienvenue chez NNotes
 
 * Bienvenue dans le projet NNotes
@@ -108,14 +107,13 @@
     - Une fois que nous nous serons mis d'accord sur le projet à implémenter, si
       possible, trouvez au moins une autre personne avec qui avancer.
 
-    - En cas de problème n'hésitez pas à nous contacter
-      (frohring.pierrehenry@gmail.com, contact@bastienfaure.fr) et jetez un oeil
-      au [[https://github.com/nomosyn/resources/][NNotes handbook]]
-
-
     - Implémentez le projet sur GitHub !
         - Gestion du projet: [[http://rfc.zeromq.org/spec:22][C4.1]]
 
         - Licence: [[https://www.mozilla.org/MPL/2.0/][MPLv2]]
 
         - Coding style: [[https://github.com/nomosyn/resources/][JS coding style]]
+
+    - En cas de problème n'hésitez pas à nous contacter
+      (frohring.pierrehenry@gmail.com, contact@bastienfaure.fr) et jetez un oeil
+      au [[https://github.com/nomosyn/resources/][NNotes handbook]]
