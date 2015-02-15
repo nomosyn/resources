@@ -1,1 +1,1 @@
-Where to find resources about NNotes.
+Moved to: https://github.com/nnotes/resources
